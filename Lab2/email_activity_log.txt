@@ -1,0 +1,37 @@
+2025-09-09 07:09:51.265059 - Connected to SMTP server.
+2025-09-09 07:09:51.908159 - TLS session started.
+2025-09-09 07:09:52.749435 - Error occurred: 'NoneType' object has no attribute 'encode'
+2025-09-09 07:09:52.999878 - SMTP session closed.
+2025-09-09 07:10:50.514808 - Connected to SMTP server.
+2025-09-09 07:10:51.125880 - TLS session started.
+2025-09-09 07:10:51.828660 - Logged in successfully.
+2025-09-09 07:10:53.377789 - Email sent to kanhakesharwani23@gmail.com
+2025-09-09 07:10:53.621554 - SMTP session closed.
+2025-09-09 10:05:45.308097 - Connected to SMTP server.
+2025-09-09 10:05:45.995675 - TLS session started.
+2025-09-09 10:05:46.879005 - Error occurred: 'NoneType' object has no attribute 'encode'
+2025-09-09 10:05:47.128632 - SMTP session closed.
+2025-09-09 10:13:46.838749 - Connected to SMTP server.
+2025-09-09 10:13:47.619506 - TLS session started.
+2025-09-09 10:13:48.134866 - Error: 'NoneType' object has no attribute 'encode'
+2025-09-09 10:13:48.394940 - SMTP session closed.
+2025-09-09 10:14:45.323971 - Connected to SMTP server.
+2025-09-09 10:14:45.689039 - TLS session started.
+2025-09-09 10:14:46.393401 - Logged in successfully.
+2025-09-09 10:14:47.169981 - Error: {'': (555, b'5.5.2 Syntax error, cannot decode response. For more information, go to\n5.5.2  https://support.google.com/a/answer/3221692 and review RFC 5321\n5.5.2 specifications. d9443c01a7336-24ca63c9ebesm153290695ad.103 - gsmtp')}
+2025-09-09 10:14:47.421982 - SMTP session closed.
+2025-09-09 10:16:16.706447 - Connected to SMTP server.
+2025-09-09 10:16:17.429106 - TLS session started.
+2025-09-09 10:16:17.803677 - Logged in successfully.
+2025-09-09 10:16:18.596752 - Error: {'': (555, b'5.5.2 Syntax error, cannot decode response. For more information, go to\n5.5.2  https://support.google.com/a/answer/3221692 and review RFC 5321\n5.5.2 specifications. 98e67ed59e1d1-32d8d0a3386sm4104000a91.18 - gsmtp')}
+2025-09-09 10:16:18.845321 - SMTP session closed.
+2025-09-09 10:58:48.230045 - Connected to SMTP server for kavyaa1706@gmail.com.
+2025-09-09 10:58:48.854623 - Started TLS.
+2025-09-09 10:58:49.558039 - Logged in as relhankavya123@gmail.com.
+2025-09-09 10:58:51.054451 - Email sent to kavyaa1706@gmail.com.
+2025-09-09 10:58:51.320008 - Disconnected from SMTP server for kavyaa1706@gmail.com.
+2025-09-09 10:58:51.653020 - Connected to SMTP server for tsr18042004@gmail.com.
+2025-09-09 10:58:52.260592 - Started TLS.
+2025-09-09 10:58:52.939169 - Logged in as relhankavya123@gmail.com.
+2025-09-09 10:58:54.619589 - Email sent to tsr18042004@gmail.com.
+2025-09-09 10:58:54.854999 - Disconnected from SMTP server for tsr18042004@gmail.com.

@@ -1,0 +1,11 @@
+DNS Query for www.google.com at 2025-09-09 09:20:20.079513 
+Resolved IP Address: 216.239.38.120
+
+A Records:
+  216.239.38.120
+
+MX Records:
+  Error retrieving MX record: The DNS response does not contain an answer to the question: www.google.com. IN MX
+
+CNAME Records:
+  forcesafesearch.google.com.

@@ -3,7 +3,7 @@ import requests
 def send_get_request(url):
     try:
         response = requests.get(url, timeout=5) 
-        response.raise_for_status()
+        response.raise_for_status()  # HTTPError for bad responses
         print("\n GET Request")
         print("Status Code:", response.status_code)
         print("Headers:", response.headers)
@@ -35,7 +35,7 @@ if __name__ == "__main__":
     # Send POST request with sample data
     sample_data = {
         "title": "test",
-        "body": "This is a test post.",
+        "body": "This is a test post TEST TEST TEST",
         "userId": 131
     }
     send_post_request(post_url, sample_data)

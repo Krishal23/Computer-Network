@@ -2,78 +2,42 @@ import socket
 import dns.resolver
 from datetime import datetime
 
-def resolve_ip(domain):
+def dns(domain_name):
     try:
-        ip_address = socket.gethostbyname(domain)
-        return ip_address
+        ip_addr = socket.gethostbyname(domain_name)
     except Exception as e:
-        return f"Error resolving IP: {e}"
+        ip_addr = f"Unable to resolve IP: {e}"
 
-# Function to get A, MX, and CNAME records
-def get_records(domain):
-    a_records = []
-    mx_records = []
-    cname_records = []
-    record_types = ['A', 'MX', 'CNAME']
-
-    for record_type in record_types:
+    records = {}
+    for rtype in ['A', 'MX', 'CNAME']:
         try:
-            answers = dns.resolver.resolve(domain, record_type)
-            for rdata in answers:
-                if record_type == 'A':
-                    a_records.append(rdata.to_text())
-                elif record_type == 'MX':
-                    mx_records.append(rdata.to_text())
-                elif record_type == 'CNAME':
-                    cname_records.append(rdata.to_text())
-                print(f"{record_type} : {rdata.to_text()}")
-        except Exception as e:
-            print(f"Could not resolve {record_type} records: {e}")
+            answers = dns.resolver.resolve(domain_name, rtype)
+            records[rtype] = [str(answer) for answer in answers]
+        except Exception as err:
+            records[rtype] = [f"Error fetching {rtype} record: {err}"]
 
-    return a_records, mx_records, cname_records
+    print(f"\nDomain: {domain_name}")
+    print(f"Resolved IP: {ip_addr}")
+    for rtype, rec_list in records.items():
+        print(f"{rtype} Records:")
+        for rec in rec_list:
+            print(f"  {rec}")
 
-# Function to log the results into a file
-def log_results(domain, ip_address, a_records, mx_records, cname_records):
-    filename = "dns_query_log.txt"
-    with open(filename, "a") as file:
-        file.write(f"\nDNS Query for {domain} at {datetime.now()}\n")
-        file.write(f"Resolved IP Address: {ip_address}\n\n")
+    log_file = "dns_query_log.txt"
+    with open(log_file, "a") as f:
+        f.write(f"\n=== DNS Query for {domain_name} at {datetime.now()} ===\n")
+        f.write(f"Resolved IP: {ip_addr}\n")
+        for rtype, rec_list in records.items():
+            f.write(f"{rtype} Records:\n")
+            for rec in rec_list:
+                f.write(f"  {rec}\n")
+        f.write("\n")
 
-        file.write("A Records:\n")
-        if a_records:
-            for record in a_records:
-                file.write(f"  {record}\n")
-        else:
-            file.write("  No A records found.\n")
+    print(f"\nResults saved to '{log_file}'")
 
-        file.write("\nMX Records:\n")
-        if mx_records:
-            for record in mx_records:
-                file.write(f"  {record}\n")
-        else:
-            file.write("  No MX records found.\n")
-
-        file.write("\nCNAME Records:\n")
-        if cname_records:
-            for record in cname_records:
-                file.write(f"  {record}\n")
-        else:
-            file.write("  No CNAME records found.\n")
-
-# Main function
 def main():
-    domain = input("Enter domain name: ")
-
-    ip_address = resolve_ip(domain)
-    print(f"\nResolved IP Address: {ip_address}\n")
-
-    # Get the DNS records
-    a_records, mx_records, cname_records = get_records(domain)
-
-    # Log the results
-    log_results(domain, ip_address, a_records, mx_records, cname_records)
-
-    print(f"\nResults logged to 'dns_query_log.txt'")
+    domain_input = input("Enter a domain name to check: ")
+    dns(domain_input)
 
 if __name__ == "__main__":
     main()

@@ -2,52 +2,53 @@ import smtplib
 from email.message import EmailMessage
 from datetime import datetime
 import os
-from dotenv import load_dotenv  
+from dotenv import load_dotenv
 
-# Load environment variables from .env file
 load_dotenv()
-# Function to log messages into a file
-def log_message(message):
-    with open("email_log.txt", "a") as file:
-        file.write(f"{datetime.now()} - {message}\n")
 
-# Main function to send email
-def send_test_email():
-    smtp_server = "smtp.gmail.com"
-    port = 587  # TLS port
-    sender_email = os.getenv("SENDERS_MAIL") 
-    password = os.getenv("APP_PASSWORD")
-    recipient_email = input("Enter recipient email address: ")
+def log_activity(entry):
+    with open("email_activity_log.txt", "a") as log_file:
+        log_file.write(f"{datetime.now()} - {entry}\n")
 
-    msg = EmailMessage()
-    msg.set_content("SMTP Connection Successful!")
-    msg["Subject"] = "Test Email"
-    msg["From"] = sender_email
-    msg["To"] = recipient_email
+# Function to send email to multiple recipients
+def send_email():
+    smtp_host = "smtp.gmail.com"
+    smtp_port = 587  # TLS port
+    sender_addr = os.getenv("SENDER_MAIL")
+    app_pass = os.getenv("APP_PASS")
 
-    try:
-        # creates SMTP session
-        server = smtplib.SMTP(smtp_server, port)
-        log_message("Connected to SMTP server.")
+    # Example recipient list (can also take input from user or a file)
+    recipients = ["kavyaa1706@gmail.com", "kanhakesharwani23@gmail.com"]
+
+    for recipient in recipients:
+        email_msg = EmailMessage()
+        email_msg.set_content("Hehe. Congratulations. We made an SMTP server work for multiple recipients!")
+        email_msg["Subject"] = "Test Email"
+        email_msg["From"] = sender_addr
+        email_msg["To"] = recipient
+
+        try:
+            server_connection = smtplib.SMTP(smtp_host, smtp_port)
+            log_activity(f"Connected to SMTP server for {recipient}.")
+            
+            server_connection.starttls()
+            log_activity("Started TLS.")
+            
+            server_connection.login(sender_addr, app_pass)
+            log_activity(f"Logged in as {sender_addr}.")
+            
+            server_connection.send_message(email_msg)
+            log_activity(f"Email sent to {recipient}.")
+            
+            print(f"Email successfully sent to {recipient}!")
         
-        server.starttls()  # Secure the connection
-        log_message("Started TLS .")
+        except Exception as err:
+            log_activity(f"Error sending to {recipient}: {err}")
+            print(f"Failed to send email to {recipient}: {err}")
         
-        # Authentication
-        server.login(sender_email, password)
-        log_message("Logged in ....yayy.")
-        
-        server.send_message(msg)
-        log_message(f"Email sent to {recipient_email}.")
-        
-        print("Email sent successfully!")
-        
-    except Exception as e:
-        log_message(f"Error: {e}")
-        print(f"Failed to send email: {e}")
-    finally:
-        server.quit()
-        log_message("Disconnected from SMTP server.")
+        finally:
+            server_connection.quit()
+            log_activity(f"Disconnected from SMTP server for {recipient}.")
 
 if __name__ == "__main__":
-    send_test_email()
+    send_email()
