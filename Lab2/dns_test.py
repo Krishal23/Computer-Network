@@ -2,7 +2,7 @@ import socket
 import dns.resolver
 from datetime import datetime
 
-def dns(domain_name):
+def dns_lookup(domain_name):
     try:
         ip_addr = socket.gethostbyname(domain_name)
     except Exception as e:
@@ -37,7 +37,7 @@ def dns(domain_name):
 
 def main():
     domain_input = input("Enter a domain name to check: ")
-    dns(domain_input)
+    dns_lookup(domain_input)
 
 if __name__ == "__main__":
     main()

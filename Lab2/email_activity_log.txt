@@ -35,3 +35,13 @@
 2025-09-09 10:58:52.939169 - Logged in as relhankavya123@gmail.com.
 2025-09-09 10:58:54.619589 - Email sent to tsr18042004@gmail.com.
 2025-09-09 10:58:54.854999 - Disconnected from SMTP server for tsr18042004@gmail.com.
+2025-09-09 13:22:22.599720 - Connected to SMTP server for kavyaa1706@gmail.com.
+2025-09-09 13:22:23.197805 - Started TLS.
+2025-09-09 13:22:23.916794 - Logged in as relhankavya123@gmail.com.
+2025-09-09 13:22:25.604252 - Email sent to kavyaa1706@gmail.com.
+2025-09-09 13:22:25.858203 - Disconnected from SMTP server for kavyaa1706@gmail.com.
+2025-09-09 13:22:26.280026 - Connected to SMTP server for kanhakesharwani23@gmail.com.
+2025-09-09 13:22:26.947877 - Started TLS.
+2025-09-09 13:22:27.785854 - Logged in as relhankavya123@gmail.com.
+2025-09-09 13:22:29.288459 - Email sent to kanhakesharwani23@gmail.com.
+2025-09-09 13:22:29.595646 - Disconnected from SMTP server for kanhakesharwani23@gmail.com.

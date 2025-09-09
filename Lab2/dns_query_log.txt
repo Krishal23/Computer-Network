@@ -9,3 +9,44 @@ MX Records:
 
 CNAME Records:
   forcesafesearch.google.com.
+
+=== DNS Query for infinito.iitp.ac.in at 2025-09-09 13:15:31.926742 ===
+Resolved IP: 172.16.1.251
+A Records:
+  Error fetching A record: 'function' object has no attribute 'resolver'
+MX Records:
+  Error fetching MX record: 'function' object has no attribute 'resolver'
+CNAME Records:
+  Error fetching CNAME record: 'function' object has no attribute 'resolver'
+
+
+=== DNS Query for infinito.iitp.ac.in at 2025-09-09 13:16:22.157947 ===
+Resolved IP: 172.16.1.251
+A Records:
+  172.16.1.251
+MX Records:
+  Error fetching MX record: The DNS response does not contain an answer to the question: infinito.iitp.ac.in. IN MX
+CNAME Records:
+  morya.iitp.ac.in.
+
+
+=== DNS Query for https://rent-iitp.vercel.app/ at 2025-09-09 13:17:18.957445 ===
+Resolved IP: Unable to resolve IP: [Errno 11001] getaddrinfo failed
+A Records:
+  Error fetching A record: The DNS query name does not exist: https://rent-iitp.vercel.app/.
+MX Records:
+  Error fetching MX record: The DNS query name does not exist: https://rent-iitp.vercel.app/.
+CNAME Records:
+  Error fetching CNAME record: The DNS query name does not exist: https://rent-iitp.vercel.app/.
+
+
+=== DNS Query for rent-iitp.vercel.app at 2025-09-09 13:17:33.121112 ===
+Resolved IP: 64.29.17.67
+A Records:
+  64.29.17.67
+  216.198.79.67
+MX Records:
+  Error fetching MX record: The DNS response does not contain an answer to the question: rent-iitp.vercel.app. IN MX
+CNAME Records:
+  Error fetching CNAME record: The DNS response does not contain an answer to the question: rent-iitp.vercel.app. IN CNAME
+
