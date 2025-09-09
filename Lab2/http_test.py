@@ -2,8 +2,8 @@ import requests
 
 def send_get_request(url):
     try:
-        response = requests.get(url, timeout=5)  # 5 sec timeout
-        response.raise_for_status()  # Raise HTTPError for bad responses
+        response = requests.get(url, timeout=5) 
+        response.raise_for_status()
         print("\n GET Request")
         print("Status Code:", response.status_code)
         print("Headers:", response.headers)

@@ -20,7 +20,7 @@ def connect_ftp():
     try:
         ftp = ftplib.FTP(HOSTNAME)
         ftp.login(USERNAME, PASSWORD)
-        ftp.set_pasv(True)  # Use passive mode
+        ftp.set_pasv(True) 
         print("Connected and logged in.")
         return ftp
     except Exception as e:
