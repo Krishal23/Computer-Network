@@ -1,0 +1,82 @@
+
+
+Topic:Network Traffic Capture and Protocol Analysis using Wireshark
+Date:October 14, 2025
+Name: Kushal Kesharwani
+Roll Number: 2301MC57
+
+
+1. Objective
+
+The objective of this lab was to capture live network traffic using Wireshark, identify different network protocols, and analyze packet-level details such as headers, fields, and communication patterns.
+
+
+2. Tools Used
+
+Wireshark
+Operating System: Ubuntu 22.04
+
+
+3. Procedure Summary
+
+1. Captured packets using Wireshark while visiting:
+
+   * `https://example.com`
+   * `https://wikipedia.org`
+   * Ran `ping 8.8.8.8` to generate ICMP traffic.
+2. Saved the captured packets as `task1.pcap`.
+3. Applied filters for ICMP, HTTP, and DNS traffic to analyze each protocol.
+4. Created a custom display filter to show only packets sent from the system IP over TCP port 80 or 443.
+5. Exported filtered packets as `filtered_packets.pcap`.
+6. Generated this summary report.
+
+
+4. Observations & Results
+
+A. Protocol Analysis
+
+| Protocol    | Description                                 | Observed Behavior                                                                          |
+| ----------- | ------------------------------------------- | ------------------------------------------------------------------------------------------ |
+|   ICMP      | Used for network diagnostics (Ping).        | Echo Request and Echo Reply packets exchanged with 8.8.8.8 confirmed network connectivity. |
+|   HTTP      | Application-layer protocol for web traffic. | Multiple GET requests and responses observed when visiting websites.                       |
+|   DNS       | Used for domain name resolution.            | DNS queries to resolve example.com and wikipedia.org were successful.                      |
+|   TCP/UDP   | Transport-layer protocols.                  | TCP used for HTTP/HTTPS traffic, UDP used for DNS queries.                                 |
+
+
+
+B. Most Active Protocols
+
+From the capture, the most active protocols were:
+
+— due to web browsing traffic (HTTP/HTTPS)
+— frequent lookups for website domain names
+ICMP — from ping requests
+
+
+5. Key Insights and Communication Flow
+
+The capture provided valuable insights into the structure of standard network communication:
+
+Web Browsing Flow (HTTPS):
+Visiting a website such as https://wikipedia.org involves multiple stages rather than a single request:
+
+Step 1: DNS Query: The client begins by sending a DNS request over UDP to resolve the IP address of wikipedia.org.
+
+Step 2: TCP Handshake: Once the IP address is obtained, a TCP three-way handshake (SYN, SYN-ACK, ACK) is performed with the web server to establish a reliable connection.
+
+Step 3: TLS Handshake: Following TCP setup, a TLS handshake takes place to exchange certificates and cryptographic parameters, creating a secure, encrypted session.
+
+Step 4: Encrypted Data Transfer: All subsequent HTTP traffic is encapsulated within TLS records and appears as “Application Data” in Wireshark, which explains why TLS dominates the captured traffic.
+
+Network Diagnostics (ICMP):
+The command ping 8.8.8.8 generated ICMP traffic consisting of Echo Request packets from the local host and Echo Reply packets from the destination (8.8.8.8), confirming successful network connectivity.
+
+The Role of Filtering:
+The lab underscored the importance of display filters in Wireshark.
+Raw captures often include thousands of packets from various applications, so filters such as icmp, dns, and the custom expression
+
+5. Conclusion
+This lab exercise effectively showcased the capabilities of Wireshark as a powerful network analysis tool.
+By capturing and examining live network traffic, we were able to clearly observe the layered functioning of network protocols in real time.
+The analysis validated the typical communication patterns involved in secure web browsing and network diagnostics, illustrating how protocols such as DNS, TCP, TLS, and ICMP interact to enable seamless Internet communication.
+All captured traffic appeared normal and consistent with expected behavior, providing valuable hands-on understanding of theoretical networking principles.
